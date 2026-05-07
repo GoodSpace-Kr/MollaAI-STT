@@ -8,10 +8,10 @@ env:
   DOCKERHUB_REPO: goodspace/molla-stt
   CONTAINER_NAME: molla-stt
   # 배포할 서버의 고정 IP 리스트를 여기에 적으세요 (여러 대라면 공백으로 구분)
-  TARGET_IPS: "13.209.6.23" 
+  TARGET_IPS: "3.36.166.43" 
 
 jobs:
-  deploy:
+  deploy:ㄴ
     runs-on: ubuntu-latest
     
     steps:
