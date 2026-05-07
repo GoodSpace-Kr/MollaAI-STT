@@ -31,7 +31,7 @@ jobs:
         docker build -t ${{ env.DOCKERHUB_REPO }}:latest .
         docker push ${{ env.DOCKERHUB_REPO }}:latest
 
-    # 3. 각 서버에 접속해서 배포
+    # 3. 서버에 접속해서 배포
     - name: Deploy
       run: |
         printf "%s" "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
