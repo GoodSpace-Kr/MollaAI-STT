@@ -11,7 +11,7 @@ env:
   TARGET_IPS: "3.36.166.43" 
 
 jobs:
-  deploy:ㄴ
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
