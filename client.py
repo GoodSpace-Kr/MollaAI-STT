@@ -10,7 +10,6 @@ import time
 import sounddevice as sd
 from websocket import ABNF, create_connection
 
-
 def _shorten(text: str, limit: int = 80) -> str:
     text = " ".join(text.split())
     if len(text) <= limit:
