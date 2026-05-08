@@ -17,7 +17,6 @@ def _shorten(text: str, limit: int = 80) -> str:
         return text
     return text[: limit - 1].rstrip() + "…"
 
-
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Stream microphone audio to the STT websocket.")
     parser.add_argument("--url", default="ws://127.0.0.1:8000/stt/ws", help="STT websocket URL")
