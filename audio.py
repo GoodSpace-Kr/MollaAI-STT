@@ -9,7 +9,6 @@ import numpy as np
 from .config import SttConfig
 from .domain import AudioChunk
 
-
 AudioEncoding = Literal["pcm16", "float32"]
 
 
