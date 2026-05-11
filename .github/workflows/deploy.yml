@@ -42,9 +42,14 @@ jobs:
           echo "🚀 Deploying to $IP..."
           ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@$IP "
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} && \
+            df -h && \
+            docker system df || true && \
             docker stop ${{ env.CONTAINER_NAME }} || true && \
             docker rm ${{ env.CONTAINER_NAME }} || true && \
+            docker image rm ${{ env.DOCKERHUB_REPO }}:latest || true && \
+            docker image prune -af || true && \
+            docker builder prune -af || true && \
             docker pull ${{ env.DOCKERHUB_REPO }}:latest && \
-            docker run --gpus all -d --name ${{ env.CONTAINER_NAME }} -p 8000:8000 ${{ env.DOCKERHUB_REPO }}:latest
+            docker run --gpus all -d --restart unless-stopped --name ${{ env.CONTAINER_NAME }} -p 8000:8000 ${{ env.DOCKERHUB_REPO }}:latest
           "
         done
